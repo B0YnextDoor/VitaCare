@@ -1,1 +1,2 @@
-# DM-DBMS
+# Krasyov Pavel
+#  253502
