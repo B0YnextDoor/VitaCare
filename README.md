@@ -346,3 +346,52 @@ CREATE TABLE "bills" (
 ## Даталогическая модель базы данных
 
 ![Database.](/VitaCare.png "Database schema")
+
+---
+
+## Создание физической базы данных и её заполнение
+
+1. Заходим за пользователя postgres:
+
+```
+psql -U postgres
+```
+
+2. Создаём нового пользователя с правами суперпользователя и возможностью создавать базы данных:
+
+```
+   CREATE USER vita_admin WITH SUPERUSER CREATEDB PASSWORD 'password';
+```
+
+3. Выходим и заходим как новый пользователь:
+
+```
+\q
+psql -U vita_admin -d postgres
+```
+
+4. Создаём базу данных:
+
+```
+CREATE DATABASE vita_care WITH OWNER = vita_admin ENCODING = 'UTF8' LOCALE_PROVIDER = 'libc' CONNECTION LIMIT
+   = -1 IS_TEMPLATE = False;
+```
+
+5. Убедимся что она создана и переключимся на неё:
+
+```
+   \l
+   \c vita_care
+```
+
+6. Создаём таблицы базы данных:
+
+```
+\i 'D:\\BD\\CreateTables.sql'
+```
+
+7. Заполняем таблицы данными:
+
+```
+\i 'D:\\BD\\Insertion.sql'
+```
