@@ -130,7 +130,26 @@ VALUES
 	('Amlodipine', 'Calcium channel blocker used to treat high blood pressure and angina', 11.25),
 	('Omeprazole', 'Proton pump inhibitor used to reduce stomach acid and treat acid reflux', 14.50),
 	('Gabapentin', 'Anticonvulsant and nerve pain medication', 22.99),
-	('Sertraline', 'Selective serotonin reuptake inhibitor (SSRI) used to treat depression and anxiety', 16.75);
+	('Sertraline', 'Selective serotonin reuptake inhibitor (SSRI) used to treat depression and anxiety', 16.75),
+	('Albuterol', 'Bronchodilator used to treat asthma and COPD symptoms such as wheezing and shortness of breath', 24.99), 
+	('Losartan', 'Angiotensin II receptor blocker (ARB) used to treat high blood pressure and protect the kidneys in people with diabetes', 19.99), 
+	('Metoprolol', 'Beta-blocker used to treat high blood pressure, chest pain (angina), and heart failure', 13.75), ('Insulin', 'Hormone used to control blood sugar in people with diabetes', 45.00), 
+	('Montelukast', 'Leukotriene receptor antagonist used to prevent asthma attacks and treat allergies', 17.50), ('Sumatriptan', 'Medication used to treat migraines and cluster headaches', 25.00), 
+	('Acetaminophen', 'Pain reliever and fever reducer, used for mild to moderate pain', 6.49), 
+	('Hydrocortisone', 'Corticosteroid used to treat inflammation and itching from skin conditions like eczema and psoriasis', 8.99), 
+	('Fluticasone', 'Corticosteroid used to relieve symptoms of asthma and allergic rhinitis', 23.50), 
+	('Atorvastatin', 'Statin used to lower cholesterol and reduce the risk of heart disease', 29.99), 
+	('Furosemide', 'Diuretic used to treat fluid retention (edema) and high blood pressure', 12.50), 
+	('Ferrous Sulfate', 'Iron supplement used to treat iron-deficiency anemia', 5.50), 
+	('Mesalamine', 'Anti-inflammatory drug used to treat inflammatory bowel diseases, including ulcerative colitis and Crohns disease', 34.99), 
+	('Methotrexate', 'Immunosuppressant used to treat psoriasis and rheumatoid arthritis', 40.00), 
+	('Levetiracetam', 'Anticonvulsant used to treat epilepsy', 28.75), 
+	('Glasses', 'Corrective lenses used to improve vision in individuals with refractive errors (e.g., myopia, hyperopia, astigmatism)', 50.00), 
+	('Carbidopa/Levodopa', 'Combination medication used to treat Parkinsons disease symptoms', 35.00), ('Spironolactone', 'Aldosterone antagonist used to treat fluid retention in liver cirrhosis and heart failure', 16.99), 
+	('Ranitidine', 'Histamine-2 blocker used to treat and prevent ulcers and GERD symptoms', 13.00), 
+	('Prednisone', 'Corticosteroid used to treat inflammation in conditions such as asthma, arthritis, and allergies', 10.75), 
+	('Budesonide', 'Corticosteroid used to prevent asthma attacks and treat inflammatory bowel disease', 22.50), ('Salbutamol', 'Short-acting bronchodilator used to treat bronchospasm in asthma and COPD', 14.99), 
+	('Clopidogrel', 'Antiplatelet medication used to prevent blood clots in people with heart disease', 35.50), ('Warfarin', 'Anticoagulant used to prevent blood clots and reduce the risk of stroke in people with atrial fibrillation or artificial heart valves', 28.00);	
 
 --- diagnosis table
 INSERT INTO "diagnosis" ("name", "description") 
@@ -143,7 +162,20 @@ VALUES
 	('Osteoarthritis', 'Joint pain and stiffness, particularly after periods of inactivity. Affected joints may be swollen and have reduced range of motion.'),
 	('Depression', 'Persistent feelings of sadness, loss of interest in activities, changes in sleep and appetite, difficulty concentrating, and thoughts of death or suicide.'),
 	('Pneumonia', 'Cough with phlegm, fever, chills, and difficulty breathing. May also cause chest pain, fatigue, and loss of appetite.'),
-	('Eczema', 'Dry, itchy, and inflamed skin. May present as red, scaly patches or small, fluid-filled blisters. Often appears on hands, feet, face, and behind the knees.');
+	('Eczema', 'Dry, itchy, and inflamed skin. May present as red, scaly patches or small, fluid-filled blisters. Often appears on hands, feet, face, and behind the knees.'),
+	('Chronic Obstructive Pulmonary Disease (COPD)', 'Progressive lung disease causing breathing difficulty, cough, mucus production, and wheezing. Often linked to long-term smoking.'), 
+	('Gastroesophageal Reflux Disease (GERD)', 'Chronic acid reflux, causing heartburn, regurgitation, and discomfort in the chest. Symptoms may worsen after eating or lying down.'), 
+	('Chronic Kidney Disease', 'Gradual loss of kidney function over time. Symptoms include fatigue, swelling in legs and ankles, nausea, and trouble concentrating.'), 
+	('Anemia', 'Reduced number of red blood cells or hemoglobin, leading to fatigue, weakness, pale skin, and shortness of breath.'), 
+	('Irritable Bowel Syndrome (IBS)', 'Abdominal pain, cramping, bloating, and irregular bowel movements, including diarrhea, constipation, or both.'), 
+	('Psoriasis', 'Chronic skin condition characterized by red, scaly patches, often on the scalp, elbows, and knees. May also cause nail changes and joint pain.'), 
+	('Epilepsy', 'Neurological disorder marked by recurrent, unprovoked seizures. Symptoms can vary from brief lapses of attention to severe convulsions.'), 
+	('Coronary Artery Disease', 'Narrowing or blockage of the coronary arteries, often leading to chest pain (angina), shortness of breath, or heart attack.'), 
+	('Hypothyroidism', 'Underactive thyroid gland, causing fatigue, weight gain, cold intolerance, and slowed metabolism.'), 
+	('Parkinsons Disease', 'Progressive neurological disorder that affects movement, causing tremors, stiffness, and difficulty with balance and coordination.'), 
+	('Liver Cirrhosis', 'Chronic liver damage leading to scarring and liver dysfunction. Symptoms include fatigue, jaundice, and swelling in the legs or abdomen.'),
+	('Caries', 'A complex, slow-moving pathological process that occurs in the hard tissues of the tooth and develops as a result of the complex influence of unfavorable external and internal factors.'),
+	('Observation', 'The patient requires further observation or examination to clarify the diagnosis');
 
 --- medical_records table
 INSERT INTO "medical_records" ("diagnosis_id", "conclusion_date", "doctor_id", "patient_id") 

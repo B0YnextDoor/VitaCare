@@ -103,13 +103,13 @@ SELECT
     mr.id AS record_id,
     mr.conclusion_date,
     d.name AS diagnosis_name,
-    dv.doctor_id,
+    dv.user_id AS doctor_id,
     dv.user_email AS doctor_email,
     dv.user_name AS doctor_name,
     dv.user_surname AS doctor_surname,
     dv.q_name AS doctor_qualification,
     dv.spec_name AS doctor_specialization,
-    pv.patient_id,
+    pv.user_id AS patient_id,
     pv.user_email AS patient_email,
     pv.user_name AS patient_name,
     pv.user_surname AS patient_surname,
@@ -120,18 +120,17 @@ JOIN "diagnosis" d ON mr.diagnosis_id = d.id
 JOIN DoctorsView dv ON mr.doctor_id = dv.doctor_id
 JOIN PatientsView pv ON mr.patient_id = pv.patient_id;
 
-SELECT
+SELECT 
     mr.id AS record_id,
     mr.conclusion_date,
     d.name AS diagnosis_name,
-    d.description AS diagnosis_description,
-    dv.doctor_id,
+    dv.user_id AS doctor_id,
     dv.user_email AS doctor_email,
     dv.user_name AS doctor_name,
     dv.user_surname AS doctor_surname,
     dv.q_name AS doctor_qualification,
     dv.spec_name AS doctor_specialization,
-    pv.patient_id,
+    pv.user_id AS patient_id,
     pv.user_email AS patient_email,
     pv.user_name AS patient_name,
     pv.user_surname AS patient_surname,
@@ -220,20 +219,21 @@ SELECT
     a.complaints,
     ast.id AS status_id,
     ast.name AS status_name,
-    dv.doctor_id,
+    dv.user_id AS doctor_id,
     dv.user_email AS doctor_email,
     dv.user_name AS doctor_name,
     dv.user_surname AS doctor_surname,
     dv.q_name AS doctor_qualification,
     dv.spec_name AS doctor_specialization,
-    pv.patient_id,
+    pv.user_id AS patient_id,
     pv.user_email AS patient_email,
     pv.user_name AS patient_name,
     pv.user_surname AS patient_surname
 FROM "appointments" a
 JOIN "appointment_statuses" ast ON a.status_id = ast.id
 JOIN DoctorsView dv ON a.doctor_id = dv.doctor_id
-JOIN PatientsView pv ON a.patient_id = pv.patient_id;
+JOIN PatientsView pv ON a.patient_id = pv.patient_id
+ORDER BY a.date DESC;
 
 SELECT 
     a.id AS appointment_id,
@@ -341,7 +341,7 @@ SELECT
     dv.spec_name AS specialization
 FROM "doctors_schedules" ds
 JOIN "skip_days_patterns" sdp ON ds.skip_days_pattern_id = sdp.id
-JOIN PatientsView pv ON ds.doctor_id = pv.doctor_id;
+JOIN DoctorsView dv ON ds.doctor_id = dv.doctor_id;
 
 SELECT 
     ds.id AS schedule_id,
@@ -357,7 +357,7 @@ SELECT
     dv.spec_name AS specialization
 FROM "doctors_schedules" ds
 JOIN "skip_days_patterns" sdp ON ds.skip_days_pattern_id = sdp.id
-JOIN PatientsView pv ON ds.doctor_id = pv.doctor_id;
+JOIN DoctorsView dv ON ds.doctor_id = dv.doctor_id
 WHERE ds.id = 1;
 
 SELECT 
@@ -374,7 +374,7 @@ SELECT
     dv.spec_name AS specialization
 FROM "doctors_schedules" ds
 JOIN "skip_days_patterns" sdp ON ds.skip_days_pattern_id = sdp.id
-JOIN PatientsView pv ON ds.doctor_id = pv.doctor_id;
+JOIN DoctorsView dv ON ds.doctor_id = dv.doctor_id
 WHERE ds.doctor_id = 1;
 
 SELECT 
@@ -391,8 +391,28 @@ SELECT
     dv.spec_name AS specialization
 FROM "doctors_schedules" ds
 JOIN "skip_days_patterns" sdp ON ds.skip_days_pattern_id = sdp.id
-JOIN PatientsView pv ON ds.doctor_id = pv.doctor_id;
+JOIN DoctorsView dv ON ds.doctor_id = dv.doctor_id
 WHERE ds.skip_days_pattern_id = 1;
+
+SELECT
+    dv.user_id,
+    dv.user_email,
+    dv.user_name,
+    dv.user_surname,
+    dv.doctor_id,
+    dv.q_name,
+    dv.q_mult,
+    dv.spec_name,
+    dv.spec_desc,
+    dv.service_fee,
+    ds.id AS schedule_id,
+    ds.start_time,
+    ds.end_time,
+    sdp.pattern AS skip_pattern
+FROM DoctorsView dv
+JOIN "doctor_schedules" ds ON ds.doctor_id = dv.doctor_id
+JOIN "skip_days_patterns" sdp ON ds.skip_days_pattern_id = sdp.id
+WHERE dv.user_id = 3;
 
 --- bills table
 SELECT 

@@ -254,7 +254,7 @@ UPDATE "doctors_schedules"
 SET
 	"start_time" = '14:00',
 	"end_time" = '20:00',
-	"skip_days_pattern_id" = 'odd',
+	"skip_days_pattern_id" = 2,
 	"doctor_id" = 1
 WHERE "id" = 1;
 
