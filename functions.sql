@@ -441,7 +441,7 @@ BEGIN
         (p_role IN (1, 2) AND "appointments"."doctor_id" = v_user_id) OR
         (p_role NOT IN (1, 2) AND "appointments"."patient_id" = v_user_id)
     )
-);
+    );
 
     RETURN QUERY
     SELECT 
