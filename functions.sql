@@ -471,6 +471,62 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+--- get medical_records
+CREATE OR REPLACE FUNCTION select_medical_records(
+    s_type INTEGER,
+    s_id INTEGER
+)
+RETURNS TABLE (
+    record_id INTEGER,
+    conclusion_date DATE,
+    diagnosis_name VARCHAR,
+    doctor_id INTEGER,
+    doctor_email VARCHAR,
+    doctor_name VARCHAR,
+    doctor_surname VARCHAR,
+    doctor_qualification VARCHAR,
+    doctor_specialization VARCHAR,
+    patient_id INTEGER,
+    patient_email VARCHAR,
+    patient_name VARCHAR,
+    patient_surname VARCHAR,
+    patient_birthday DATE,
+    gender TEXT
+) AS $$
+BEGIN
+    IF s_type IS NULL AND s_id IS NOT NULL THEN
+        RAISE EXCEPTION 'Wrong function arguments';
+    END IF;
+    RETURN QUERY
+    SELECT 
+        mr.id AS record_id,
+        mr.conclusion_date,
+        d.name AS diagnosis_name,
+        dv.user_id AS doctor_id,
+        dv.user_email AS doctor_email,
+        dv.user_name AS doctor_name,
+        dv.user_surname AS doctor_surname,
+        dv.q_name AS doctor_qualification,
+        dv.spec_name AS doctor_specialization,
+        pv.user_id AS patient_id,
+        pv.user_email AS patient_email,
+        pv.user_name AS patient_name,
+        pv.user_surname AS patient_surname,
+        pv.birthday AS patient_birthday,
+        pv.gender
+    FROM "medical_records" mr
+    JOIN "diagnosis" d ON mr.diagnosis_id = d.id
+    JOIN DoctorsView dv ON mr.doctor_id = dv.doctor_id
+    JOIN PatientsView pv ON mr.patient_id = pv.patient_id
+    WHERE
+        (s_type IS NULL AND s_id is NULL) OR
+        (
+            (s_type = 1 AND dv.user_id = s_id) OR
+            (s_type != 1 AND pv.user_id = s_id) 
+        )
+    ORDER BY mr.conclusion_date DESC;
+END;
+$$ LANGUAGE plpgsql;
 
 SELECT proname, proargtypes
 FROM pg_proc
