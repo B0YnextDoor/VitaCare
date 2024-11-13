@@ -1,0 +1,16 @@
+.doctor-card {
+  @apply text-black bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg hover:bg-blue-50 mb-3;
+  text-decoration: none;
+}
+
+.doctor-card h3 {
+  @apply text-2xl font-bold text-gray-800 mb-2 border-b pb-2;
+}
+
+.doctor-card p {
+  @apply text-xl text-gray-700 font-medium;
+}
+
+.doctor-list {
+  @apply w-full h-full flex flex-col;
+}

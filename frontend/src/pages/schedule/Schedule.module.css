@@ -1,0 +1,47 @@
+.sch_form_page {
+  @apply w-full h-full flex flex-col items-center;
+}
+
+.sch_form_page h1 {
+  @apply text-3xl font-black mb-5;
+}
+
+.sch_form {
+  @apply flex flex-col;
+}
+
+.sch_card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg w-full relative;
+}
+
+.description {
+  @apply border-t flex items-center justify-center;
+}
+
+.description h4 {
+  @apply text-xl font-bold text-gray-800;
+}
+
+.sch_form {
+  @apply flex flex-col;
+}
+
+.sch_form span {
+  display: block;
+  color: #bf1650;
+  margin-block: 8px;
+}
+
+.sch_form span::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.sch_form label {
+  @apply text-xs text-black ml-1.5 font-medium;
+}
+
+[id$="time"] {
+  color-scheme: light;
+  justify-content: flex-start;
+}

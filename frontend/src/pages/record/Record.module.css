@@ -1,0 +1,83 @@
+.record_form_page {
+  @apply w-full h-full grid grid-cols-2 gap-2;
+}
+
+.record_page {
+  @apply w-full h-full flex flex-col gap-2;
+}
+
+.info_card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg flex flex-col w-full;
+  text-decoration: none;
+}
+
+.base {
+  @apply p-3 relative gap-2;
+}
+
+.record_page h1,
+.form h1 {
+  @apply text-3xl font-black mb-5;
+}
+
+.info_card h3 {
+  @apply text-2xl font-bold text-gray-800 mb-4 border-b pb-2 w-2/3;
+}
+
+.info_card p {
+  @apply text-xl text-gray-700 font-medium;
+}
+
+.description {
+  @apply mt-4 pt-4 border-t;
+}
+
+.description h4 {
+  @apply text-xl font-bold text-gray-800 mb-2 capitalize;
+}
+
+.info:hover {
+  @apply bg-blue-50;
+}
+
+.doc:hover {
+  @apply bg-red-50;
+}
+
+.pat:hover {
+  @apply bg-green-50;
+}
+
+.form {
+  @apply w-full flex flex-col;
+}
+
+.form span {
+  display: block;
+  color: #bf1650;
+  margin-block: 8px;
+}
+
+.form span::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.form label {
+  @apply text-xs text-black ml-1.5 font-medium;
+}
+
+.form textarea {
+  color-scheme: light;
+  background-color: #fff;
+  border: 1px solid rgb(156 163 175);
+  margin-block: 8px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: black;
+  height: 100px;
+  resize: none;
+}

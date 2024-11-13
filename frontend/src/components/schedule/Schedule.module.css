@@ -1,0 +1,23 @@
+.info_card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg w-full relative;
+}
+
+.base {
+  @apply flex flex-col gap-2 p-2 items-center;
+}
+
+.info_card h1 {
+  @apply text-3xl font-black mb-5;
+}
+
+.description {
+  @apply border-t flex items-center justify-center;
+}
+
+.description h4 {
+  @apply text-xl font-bold text-gray-800;
+}
+
+.name:hover {
+  @apply bg-red-50;
+}
