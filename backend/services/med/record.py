@@ -32,7 +32,7 @@ class MedicalRecordService():
         except Exception:
             return None
 
-    def getByUserId(self, user_id: int, role: int):
+    def getByUserId(self, user_id: int, role: int = 3):
         try:
             with self.session() as db:
                 sql = text(
