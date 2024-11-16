@@ -1,0 +1,91 @@
+.app_page {
+  @apply text-black w-full h-full;
+}
+
+.app_info {
+  @apply w-full h-full grid grid-cols-2 gap-2;
+}
+
+.info_card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg grid grid-cols-2;
+  text-decoration: none;
+}
+
+.schedule_card {
+  @apply p-3 w-full gap-2;
+}
+
+.app_card {
+  @apply flex justify-between w-full;
+}
+
+.base {
+  @apply flex flex-col gap-2 p-3 w-full;
+}
+
+.info_card h1,
+.form h1 {
+  @apply text-3xl font-black mb-5;
+}
+
+.info_card h3 {
+  @apply text-2xl font-bold text-gray-800 mb-4 border-b pb-2 w-2/3;
+}
+
+.info_card p {
+  @apply text-xl text-gray-700 font-medium;
+}
+
+.name:hover {
+  @apply bg-red-50;
+}
+
+.info:hover {
+  @apply bg-blue-50;
+}
+
+.controls {
+  @apply flex items-center w-full;
+}
+
+.form_cont {
+  @apply w-full h-full grid grid-cols-2 gap-3;
+}
+
+.form {
+  @apply flex flex-col;
+}
+
+.form input[type="datetime-local"],
+.form textarea {
+  color-scheme: light;
+  background-color: #fff;
+  border: 1px solid rgb(156 163 175);
+  margin-block: 8px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: black;
+}
+
+.form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.form span {
+  display: block;
+  color: #bf1650;
+  margin-block: 8px;
+}
+
+.form span::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.form label {
+  @apply text-xs text-black ml-1.5 font-medium;
+}

@@ -1,0 +1,7 @@
+.switcher {
+  @apply flex w-1/2 justify-between items-center mb-5;
+}
+
+.switcher button {
+  @apply flex items-center gap-2 bg-transparent outline-none;
+}

@@ -1,0 +1,41 @@
+.diagnosis_form {
+  @apply w-full h-full flex flex-col items-center gap-2;
+}
+
+.diagnosis_form h1 {
+  @apply text-3xl font-black mb-5;
+}
+
+.diagnosis_form form {
+  @apply w-1/2 flex flex-col;
+}
+
+.diagnosis_form form textarea {
+  color-scheme: light;
+  background-color: #fff;
+  border: 1px solid rgb(156 163 175);
+  margin-block: 8px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: black;
+  height: 100px;
+  resize: none;
+}
+
+.diagnosis_form form span {
+  display: block;
+  color: #bf1650;
+  margin-block: 8px;
+}
+
+.diagnosis_form form span::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.diagnosis_form form label {
+  @apply text-xs text-black ml-1.5 font-medium;
+}

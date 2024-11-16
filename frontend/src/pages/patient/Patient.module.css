@@ -1,0 +1,31 @@
+.patient_page {
+  @apply text-black w-full h-full;
+}
+
+.patient_info {
+  @apply w-full grid grid-cols-2 gap-2 h-max;
+}
+
+.info_card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+}
+
+.base {
+  @apply flex flex-col gap-2 p-2;
+}
+
+.info_card h1 {
+  @apply text-3xl font-black mb-5;
+}
+
+.info_card h3 {
+  @apply text-2xl font-bold text-gray-800 mb-4 border-b pb-2;
+}
+
+.info_card p {
+  @apply text-xl text-gray-700 font-medium;
+}
+
+.name:hover {
+  @apply bg-red-50;
+}
